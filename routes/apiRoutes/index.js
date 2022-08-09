@@ -3,9 +3,10 @@ const router = require('express').Router()
 
 
 
-
 router.get('/notes', (req, res) => {
-    res.send(getNotes())
+    let result = getNotes();
+    console.log(result)
+    res.json(result)
 })
 
 router.post('/notes', (req, res) => {
