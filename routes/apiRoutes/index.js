@@ -10,7 +10,14 @@ router.get('/notes', (req, res) => {
 })
 
 router.post('/notes', (req, res) => {
-    res.send("Note creation is working")
+    if (!req.body) {
+        res.sendStatus(406)
+    }
+
+    let result = addNote(req.body)
+
+    res.json(result);
+    
 })
 
 module.exports = router;
